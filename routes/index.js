@@ -79,28 +79,28 @@ router.get('/log.html', function(req, res, next) {
   </html>`);
 });
 
-var counter42 = 0;
+var counter2 = 0;
 router.get('/color.txt', function(req, res, next) {
-  var color42 = "";
-  switch (counter42%4) {
+  var color2 = "";
+  switch (counter2%4) {
     case 1:
-      color42 = "yellow";
+      color2 = "yellow";
       break;
 
     case 2:
-      color42 = "green";
+      color2 = "green";
       break;
 
     case 3:
-      color42 = "blue";
+      color2 = "blue";
       break;
 
     default:
-      color42 = "red";
+      color2 = "red";
   }
-  counter42++;
+  counter2++;
 
-  res.send(color42);
+  res.send(color2);
 });
 
 module.exports = router;
