@@ -7,9 +7,9 @@ router.get('/', function(req, res, next) {
 });
 
 var timestamp;
-var currentDate = new Date();
 router.get('/last.txt', function(req, res, next) {
   res.send(String(timestamp));
+  var currentDate = new Date();
   timestamp = currentDate.getTime();
 });
 
