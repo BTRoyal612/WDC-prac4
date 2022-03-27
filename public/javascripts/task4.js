@@ -50,8 +50,6 @@ function getTimelist() {
     xhttp.send();
 }
 
-setInterval(updateTimelist, 10000);
-
 function updateTimelist() {
     var xhttp = new XMLHttpRequest();
 
