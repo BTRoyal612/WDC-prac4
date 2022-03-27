@@ -50,7 +50,7 @@ function getTimelist() {
     xhttp.send();
 }
 
-const myTimeout = setTimeout(updateTimelist, 10000);
+setInterval(updateTimelist, 10000);
 
 function updateTimelist() {
     var xhttp = new XMLHttpRequest();
