@@ -10,7 +10,7 @@ var timestamp;
 router.get('/last.txt', function(req, res, next) {
   if (timestamp) res.send(String(timestamp));
   else res.send();
-  timestamp = Date.now();
+  timestamp = new Date;
 });
 
 var counter = 0;
@@ -47,6 +47,34 @@ router.get('/color.html', function(req, res, next) {
       </head>
       <body>
           <h1>${color}</h1>
+      </body>
+  </html>`);
+});
+
+var views = "";
+router.get('/log.html', function(req, res, next) {
+  var currentDate = new Date;
+  if (views == "") views += currentDate;
+  else views += "," + currentDate;
+  res.send(`
+  <!DOCTYPE html>
+  <html lang="en">
+      <head>
+          <title>Task 3.3</title>
+      </head>
+      <body>
+          <ul id="time-list"></ul>
+          <script>
+            var list = document.getElementById("time-list");
+            var views = "${views}";
+            var array = views.split(",");
+
+            for (let e of array) {
+              var etime = document.createElement("li");
+              etime.appendChild(document.createTextNode(e));
+              list.appendChild(etime);
+            }
+          </script>
       </body>
   </html>`);
 });
