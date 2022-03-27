@@ -7,7 +7,7 @@ function getTimestamp() {
         }
     }
 
-    xhttp.open("GET", "/last.txt", true)
+    xhttp.open("GET", "/last.txt", true);
 
     xhttp.send();
 }
@@ -24,7 +24,7 @@ function getColor() {
         }
     }
 
-    xhttp.open("GET", "/color.txt", true)
+    xhttp.open("GET", "/color.txt", true);
 
     xhttp.send();
 }
@@ -45,18 +45,18 @@ function getTimelist() {
         }
     }
 
-    xhttp.open("GET", "/log.json", true)
+    xhttp.open("GET", "/log.json", true);
 
     xhttp.send();
 }
 
 function updateTimelist() {
     var xhttp = new XMLHttpRequest();
-
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             var timelist = JSON.parse(this.responseText);
             var list = document.getElementById("time-list");
+            list.innerHTML = "";
             for (let e of timelist) {
                 var etime = document.createElement("li");
                 etime.appendChild(document.createTextNode(e));
@@ -64,9 +64,9 @@ function updateTimelist() {
             }
 
         }
-    }
+    };
 
-    xhttp.open("GET", "/log-ro.json", true)
+    xhttp.open("GET", "/log-ro.json", true);
 
     xhttp.send();
 }
