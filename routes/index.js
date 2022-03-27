@@ -10,7 +10,7 @@ var timestamp;
 router.get('/last.txt', function(req, res, next) {
   if (timestamp) res.send(String(timestamp));
   else res.send();
-  var currentDate = new Date();
+  const currentDate = new Date;
   timestamp = currentDate.getTime();
 });
 
