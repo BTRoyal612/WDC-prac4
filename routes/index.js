@@ -103,4 +103,15 @@ router.get('/color.txt', function(req, res, next) {
   res.send(color2);
 });
 
+var views2 = [];
+router.get('/log.json', function(req, res, next) {
+  var currentDate = new Date;
+  views2.push(String(currentDate));
+  res.send(JSON.stringify(views2));
+});
+
+router.get('/log-ro.json', function(req, res, next) {
+  res.send(JSON.stringify(views2));
+});
+
 module.exports = router;

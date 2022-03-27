@@ -28,3 +28,47 @@ function getColor() {
 
     xhttp.send();
 }
+
+function getTimelist() {
+    var xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var timelist = JSON.parse(this.responseText);
+            var list = document.getElementById("time-list");
+            for (let e of timelist) {
+                var etime = document.createElement("li");
+                etime.appendChild(document.createTextNode(e));
+                list.appendChild(etime);
+            }
+
+        }
+    }
+
+    xhttp.open("GET", "/log.json", true)
+
+    xhttp.send();
+}
+
+const myTimeout = setTimeout(updateTimelist, 10000);
+
+function updateTimelist() {
+    var xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            var timelist = JSON.parse(this.responseText);
+            var list = document.getElementById("time-list");
+            for (let e of timelist) {
+                var etime = document.createElement("li");
+                etime.appendChild(document.createTextNode(e));
+                list.appendChild(etime);
+            }
+
+        }
+    }
+
+    xhttp.open("GET", "/log-ro.json", true)
+
+    xhttp.send();
+}
