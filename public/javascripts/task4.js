@@ -19,7 +19,7 @@ function getColor() {
         if (this.readyState == 4 && this.status == 200) {
             var changeColor = this.responseText;
             var heading = document.getElementById("color-head");
-            heading.innerText = changeColor;
+            heading.innerHTML = changeColor;
             heading.style.color = changeColor;
         }
     }
