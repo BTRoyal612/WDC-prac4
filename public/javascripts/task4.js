@@ -17,10 +17,10 @@ function getColor() {
 
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            var color = this.responseText;
+            var changeColor = this.responseText;
             var heading = document.getElementById("color-head");
-            heading.innerText = color;
-            heading.style.color = color;
+            heading.innerText = changeColor;
+            heading.style.color = changeColor;
         }
     }
 
