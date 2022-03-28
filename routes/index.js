@@ -129,4 +129,22 @@ router.get('/search.ajax', function(req, res, next) {
   res.send('<input type="text"><button>Search</button>');
 });
 
+// Task 4.5
+var acceptCall = false;
+router.get('/accept', function(req, res, next) {
+  acceptCall = true;
+  res.status(200).send();
+});
+
+router.get('/content.ajax', function(req, res, next) {
+  if (acceptCall) {
+    res.send(`<p>This is the first paragraph.</p>
+              <p>This is the second paragraph.</p>`);
+  } else {
+    res.status(403).send();
+  }
+
+});
+
+
 module.exports = router;

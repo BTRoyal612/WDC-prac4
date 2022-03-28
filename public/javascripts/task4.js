@@ -112,3 +112,31 @@ function getAbout() {
 
     xhttp.send();
 }
+
+function getAccept() {
+    var xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            getContent();
+        }
+    }
+
+    xhttp.open("GET", "/accept", true);
+
+    xhttp.send();
+}
+
+function getContent() {
+    var xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("terms-conditions").innerHTML = String(this.responseText);
+        }
+    }
+
+    xhttp.open("GET", "/content.ajax", true);
+
+    xhttp.send();
+}
