@@ -6,6 +6,7 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
+// Task 3.1
 var timestamp;
 router.get('/last.txt', function(req, res, next) {
   if (timestamp) res.send(String(timestamp));
@@ -13,6 +14,7 @@ router.get('/last.txt', function(req, res, next) {
   timestamp = new Date;
 });
 
+// Task 3.2
 var counter = 0;
 router.get('/color.html', function(req, res, next) {
   var color = "";
@@ -51,6 +53,8 @@ router.get('/color.html', function(req, res, next) {
   </html>`);
 });
 
+
+// Task 3.3
 var views = "";
 router.get('/log.html', function(req, res, next) {
   var currentDate = new Date;
@@ -79,6 +83,7 @@ router.get('/log.html', function(req, res, next) {
   </html>`);
 });
 
+// Task 4.2
 var counter2 = 0;
 router.get('/color.txt', function(req, res, next) {
   var color2 = "";
@@ -103,6 +108,7 @@ router.get('/color.txt', function(req, res, next) {
   res.send(color2);
 });
 
+// Task 4.3
 var views2 = [];
 router.get('/log.json', function(req, res, next) {
   var currentDate = new Date;
@@ -112,6 +118,15 @@ router.get('/log.json', function(req, res, next) {
 
 router.get('/log-ro.json', function(req, res, next) {
   res.send(JSON.stringify(views2));
+});
+
+// Task 4.4
+router.get('/contact.ajax', function(req, res, next) {
+  res.send('<a href="mailto: gb.hoang02@gmail.com">Send email</a>');
+});
+
+router.get('/search.ajax', function(req, res, next) {
+  res.send('<input type="text"><button>Search</button>');
 });
 
 module.exports = router;
