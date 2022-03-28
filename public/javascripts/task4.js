@@ -76,7 +76,7 @@ function getContact() {
 
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("content").innerHTML = this.responseText;
+            document.getElementById("content").innerHTML = String(this.responseText);
         }
     }
 
@@ -90,7 +90,7 @@ function getSearch() {
 
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("content").innerHTML = this.responseText;
+            document.getElementById("content").innerHTML = String(this.responseText);
         }
     }
 
@@ -104,7 +104,7 @@ function getAbout() {
 
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("content").innerHTML = this.responseText;
+            document.getElementById("content").innerHTML = String(this.responseText);
         }
     }
 
